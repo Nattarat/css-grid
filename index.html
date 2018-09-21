@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Grid Production</title>
+  <link rel="stylesheet" href="css/ress.css">
+  <link rel="stylesheet" href="css/grid.css">
+</head>
+<body>
+  <div class="grid is-gutter-5-mobile is-gutter-50-desktop is-gutter-vertical-50-mobile is-gutter-vertical-5-desktop">
+    <div class="grid-column is-6 is-12-large-desktop">
+      <div>Column_1</div>
+    </div>
+    <div class="grid-column is-6">
+      <div>Column_2</div>
+    </div>
+    <div class="grid-column">
+      <div>Column_3</div>
+    </div>
+  </div>
+
+  <div class="grid is-gutter-5">
+    <div class="grid-column is-fluid-2 is-narrow-mobile">
+      <div>
+        Column_1
+        <div class="grid">
+          <div class="grid-column is-12-mobile is-6-phablet">
+            <div>Nesting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-column is-fluid-1">
+      <div>Column_2</div>
+    </div>
+    <div class="grid-column">
+      <div>Column_3</div>
+    </div>
+  </div>
+</body>
+</html>

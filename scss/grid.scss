@@ -1,0 +1,364 @@
+$breakpoint-mobile: 320px;
+$breakpoint-phablet: 414px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1366px;
+$breakpoint-large-desktop: 1600px;
+
+$grid-system: 12;
+
+$gutter-base:         5;
+$gutter-mini:         $gutter-base * 1;   // 5px
+$gutter-tiny:         $gutter-base * 2;   // 10px
+$gutter-extra-small:  $gutter-base * 3;   // 15px
+$gutter-small:        $gutter-base * 4;   // 20px
+$gutter-medium:       $gutter-base * 5;   // 25px
+$gutter-large:        $gutter-base * 6;   // 30px
+$gutter-extra-large:  $gutter-base * 7;   // 35px
+$gutter-big:          $gutter-base * 8;   // 40px
+$gutter-huge:         $gutter-base * 9;   // 45px
+$gutter-massive:      $gutter-base * 10;  // 50px
+
+$gutter-sizes: $gutter-mini $gutter-tiny $gutter-extra-small $gutter-small $gutter-medium $gutter-large $gutter-extra-large $gutter-big $gutter-huge $gutter-massive;
+
+// Grid
+// ============================================================
+.grid {
+  // Mixins, Props
+  // -------------------------------
+  // Parent styles
+  // -------------------------------
+  display: flex;
+  flex-wrap: wrap;
+
+  // Child element styles
+  // -------------------------------
+  > .grid-column {
+    transition: all 0.3s ease-in-out;
+
+    // Flex fluid in row only
+    // ..........
+    @for $i from 1 through $grid-system {
+      &.is-fluid-#{$i} {
+        flex: $i;
+      }
+    }
+
+    @media (min-width: $breakpoint-mobile) {
+      @for $i from 1 through $grid-system {
+        &.is-fluid-#{$i}-mobile {
+          flex: $i;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-phablet) {
+      @for $i from 1 through $grid-system {
+        &.is-fluid-#{$i}-phablet {
+          flex: $i;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      @for $i from 1 through $grid-system {
+        &.is-fluid-#{$i}-tablet {
+          flex: $i;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-laptop) {
+      @for $i from 1 through $grid-system {
+        &.is-fluid-#{$i}-laptop {
+          flex: $i;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      @for $i from 1 through $grid-system {
+        &.is-fluid-#{$i}-desktop {
+          flex: $i;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-large-desktop) {
+      @for $i from 1 through $grid-system {
+        &.is-fluid-#{$i}-large-desktop {
+          flex: $i;
+        }
+      }
+    }
+
+    // Flex none for stack column
+    @media (max-width: $breakpoint-phablet - 1) {
+      &.is-narrow-mobile {
+        flex: none;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: $breakpoint-tablet - 1) {
+      &.is-narrow-phablet {
+        flex: none;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: $breakpoint-laptop - 1) {
+      &.is-narrow-tablet {
+        flex: none;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: $breakpoint-desktop - 1) {
+      &.is-narrow-laptop {
+        flex: none;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: $breakpoint-large-desktop - 1) {
+      &.is-narrow-desktop {
+        flex: none;
+        width: 100%;
+      }
+    }
+
+    // Flex percent
+    // ..........
+    @for $i from 0 through $grid-system - 1 {
+      &.is-#{$grid-system - $i} {
+        width: (100% * ($grid-system - $i)) / $grid-system;
+      }
+    }
+
+    @media (min-width: $breakpoint-mobile) {
+      @for $i from 0 through $grid-system - 1 {
+        &.is-#{$grid-system - $i}-mobile {
+          width: (100% * ($grid-system - $i)) / $grid-system;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-phablet) {
+      @for $i from 0 through $grid-system - 1 {
+        &.is-#{$grid-system - $i}-phablet {
+          width: (100% * ($grid-system - $i)) / $grid-system;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      @for $i from 0 through $grid-system - 1 {
+        &.is-#{$grid-system - $i}-tablet {
+          width: (100% * ($grid-system - $i)) / $grid-system;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-laptop) {
+      @for $i from 0 through $grid-system - 1 {
+        &.is-#{$grid-system - $i}-laptop {
+          width: (100% * ($grid-system - $i)) / $grid-system;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      @for $i from 0 through $grid-system - 1 {
+        &.is-#{$grid-system - $i}-desktop {
+          width: (100% * ($grid-system - $i)) / $grid-system;
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-large-desktop) {
+      @for $i from 0 through $grid-system - 1 {
+        &.is-#{$grid-system - $i}-large-desktop {
+          width: (100% * ($grid-system - $i)) / $grid-system;
+        }
+      }
+    }
+  }
+
+  // States
+  // -------------------------------
+  // Modifiers
+  // -------------------------------
+  // Gutter horizontal
+  // ..........
+  @each $gutter-size in $gutter-sizes {
+    &.is-gutter-#{$gutter-size} {
+      margin-left: -$gutter-size * 1px;
+
+      > .grid-column {
+        padding-left: $gutter-size * 1px;
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-mobile) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-#{$gutter-size}-mobile {
+        margin-left: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-left: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-phablet) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-#{$gutter-size}-phablet {
+        margin-left: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-left: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-#{$gutter-size}-tablet {
+        margin-left: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-left: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-laptop) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-#{$gutter-size}-laptop {
+        margin-left: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-left: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-#{$gutter-size}-desktop {
+        margin-left: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-left: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-large-desktop) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-#{$gutter-size}-large-desktop {
+        margin-left: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-left: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  // Gutter vertical
+  // ..........
+  @each $gutter-size in $gutter-sizes {
+    &.is-gutter-vertical-#{$gutter-size} {
+      margin-bottom: -$gutter-size * 1px;
+
+      > .grid-column {
+        padding-bottom: $gutter-size * 1px;
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-mobile) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-vertical-#{$gutter-size}-mobile {
+        margin-bottom: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-bottom: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-phablet) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-vertical-#{$gutter-size}-phablet {
+        margin-bottom: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-bottom: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-vertical-#{$gutter-size}-tablet {
+        margin-bottom: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-bottom: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-laptop) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-vertical-#{$gutter-size}-laptop {
+        margin-bottom: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-bottom: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-vertical-#{$gutter-size}-desktop {
+        margin-bottom: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-bottom: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-large-desktop) {
+    @each $gutter-size in $gutter-sizes {
+      &.is-gutter-vertical-#{$gutter-size}-large-desktop {
+        margin-bottom: -$gutter-size * 1px;
+
+        > .grid-column {
+          padding-bottom: $gutter-size * 1px;
+        }
+      }
+    }
+  }
+
+  // States with modifiers
+  // -------------------------------
+  // Media queries
+  // -------------------------------
+}
