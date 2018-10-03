@@ -1,10 +1,4 @@
-body {
-  margin: 0; }
-
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-
+/* CSS Grid - https: //github.com/Nattarat/css-grid */
 .grid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -362,31 +356,31 @@ body {
         -ms-flex: 12;
         flex: 12; } }
     @media (max-width: 413px) {
-      .grid > .grid-column.is-narrow-mobile {
+      .grid > .grid-column[class*='is-'].is-stack-mobile {
         -webkit-box-flex: 0;
         -ms-flex: none;
         flex: none;
         width: 100%; } }
-    @media (max-width: 767px) {
-      .grid > .grid-column.is-narrow-phablet {
+    @media (min-width: 414px) and (max-width: 767px) {
+      .grid > .grid-column[class*='is-'].is-stack-phablet {
         -webkit-box-flex: 0;
         -ms-flex: none;
         flex: none;
         width: 100%; } }
-    @media (max-width: 1023px) {
-      .grid > .grid-column.is-narrow-tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .grid > .grid-column.is-stack-tablet {
         -webkit-box-flex: 0;
         -ms-flex: none;
         flex: none;
         width: 100%; } }
-    @media (max-width: 1365px) {
-      .grid > .grid-column.is-narrow-laptop {
+    @media (min-width: 1024px) and (max-width: 1365px) {
+      .grid > .grid-column[class*='is-'].is-stack-laptop {
         -webkit-box-flex: 0;
         -ms-flex: none;
         flex: none;
         width: 100%; } }
-    @media (max-width: 1599px) {
-      .grid > .grid-column.is-narrow-desktop {
+    @media (min-width: 1366px) and (max-width: 1599px) {
+      .grid > .grid-column[class*='is-'].is-stack-desktop {
         -webkit-box-flex: 0;
         -ms-flex: none;
         flex: none;
@@ -1137,3 +1131,121 @@ body {
       margin-bottom: -50px; }
       .grid.is-gutter-vertical-50-large-desktop > .grid-column {
         padding-bottom: 50px; } }
+  .grid.is-align-left {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+  .grid.is-align-right {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+  .grid.is-align-center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .grid.is-align-spacebetween {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  @media (min-width: 320px) {
+    .grid.is-align-left-mobile {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
+    .grid.is-align-right-mobile {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
+    .grid.is-align-center-mobile {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .grid.is-align-spacebetween-mobile {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; } }
+  @media (min-width: 414px) {
+    .grid.is-align-left-phablet {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
+    .grid.is-align-right-phablet {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
+    .grid.is-align-center-phablet {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .grid.is-align-spacebetween-phablet {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; } }
+  @media (min-width: 768px) {
+    .grid.is-align-left-tablet {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
+    .grid.is-align-right-tablet {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
+    .grid.is-align-center-tablet {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .grid.is-align-spacebetween-tablet {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; } }
+  @media (min-width: 1024px) {
+    .grid.is-align-left-laptop {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
+    .grid.is-align-right-laptop {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
+    .grid.is-align-center-laptop {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .grid.is-align-spacebetween-laptop {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; } }
+  @media (min-width: 1366px) {
+    .grid.is-align-left-desktop {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
+    .grid.is-align-right-desktop {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
+    .grid.is-align-center-desktop {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .grid.is-align-spacebetween-desktop {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; } }
+  @media (min-width: 1600px) {
+    .grid.is-align-left-large-desktop {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
+    .grid.is-align-right-large-desktop {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
+    .grid.is-align-center-large-desktop {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .grid.is-align-spacebetween-large-desktop {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; } }

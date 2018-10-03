@@ -1,9 +1,20 @@
+/* CSS Grid - https: //github.com/Nattarat/css-grid */
+
 $breakpoint-mobile: 320px;
 $breakpoint-phablet: 414px;
 $breakpoint-tablet: 768px;
 $breakpoint-laptop: 1024px;
 $breakpoint-desktop: 1366px;
 $breakpoint-large-desktop: 1600px;
+
+$breakpoint-names: (
+  $breakpoint-mobile: mobile,
+  $breakpoint-phablet: phablet,
+  $breakpoint-tablet: tablet,
+  $breakpoint-laptop:laptop,
+  $breakpoint-desktop: desktop,
+  $breakpoint-large-desktop: large-desktop
+);
 
 $grid-system: 12;
 
@@ -21,16 +32,9 @@ $gutter-massive:      $gutter-base * 10;  // 50px
 
 $gutter-sizes: $gutter-mini $gutter-tiny $gutter-extra-small $gutter-small $gutter-medium $gutter-large $gutter-extra-large $gutter-big $gutter-huge $gutter-massive;
 
+
 // Grid
 // ============================================================
-body {
-  margin: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 .grid {
   // Mixins, Props
   // -------------------------------
@@ -41,7 +45,7 @@ body {
 
   // Child element styles
   // -------------------------------
-  > .grid-column {
+  >.grid-column {
     transition: all 0.3s ease-in-out;
 
     > div {
@@ -114,35 +118,35 @@ body {
 
     // Flex none for stack column
     @media (max-width: $breakpoint-phablet - 1) {
-      &.is-narrow-mobile {
+      &[class*='is-'].is-stack-mobile {
         flex: none;
         width: 100%;
       }
     }
 
-    @media (max-width: $breakpoint-tablet - 1) {
-      &.is-narrow-phablet {
+    @media (min-width: $breakpoint-phablet) and (max-width: $breakpoint-tablet - 1) {
+      &[class*='is-'].is-stack-phablet {
         flex: none;
         width: 100%;
       }
     }
 
-    @media (max-width: $breakpoint-laptop - 1) {
-      &.is-narrow-tablet {
+    @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-laptop - 1) {
+      &.is-stack-tablet {
         flex: none;
         width: 100%;
       }
     }
 
-    @media (max-width: $breakpoint-desktop - 1) {
-      &.is-narrow-laptop {
+    @media (min-width: $breakpoint-laptop) and (max-width: $breakpoint-desktop - 1) {
+      &[class*='is-'].is-stack-laptop {
         flex: none;
         width: 100%;
       }
     }
 
-    @media (max-width: $breakpoint-large-desktop - 1) {
-      &.is-narrow-desktop {
+    @media (min-width: $breakpoint-desktop) and (max-width: $breakpoint-large-desktop - 1) {
+      &[class*='is-'].is-stack-desktop {
         flex: none;
         width: 100%;
       }
@@ -215,7 +219,7 @@ body {
     &.is-gutter-#{$gutter-size} {
       margin-left: -$gutter-size * 1px;
 
-      > .grid-column {
+      >.grid-column {
         padding-left: $gutter-size * 1px;
       }
     }
@@ -226,7 +230,7 @@ body {
       &.is-gutter-#{$gutter-size}-mobile {
         margin-left: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-left: $gutter-size * 1px;
         }
       }
@@ -238,7 +242,7 @@ body {
       &.is-gutter-#{$gutter-size}-phablet {
         margin-left: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-left: $gutter-size * 1px;
         }
       }
@@ -250,7 +254,7 @@ body {
       &.is-gutter-#{$gutter-size}-tablet {
         margin-left: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-left: $gutter-size * 1px;
         }
       }
@@ -262,7 +266,7 @@ body {
       &.is-gutter-#{$gutter-size}-laptop {
         margin-left: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-left: $gutter-size * 1px;
         }
       }
@@ -274,7 +278,7 @@ body {
       &.is-gutter-#{$gutter-size}-desktop {
         margin-left: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-left: $gutter-size * 1px;
         }
       }
@@ -286,7 +290,7 @@ body {
       &.is-gutter-#{$gutter-size}-large-desktop {
         margin-left: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-left: $gutter-size * 1px;
         }
       }
@@ -299,7 +303,7 @@ body {
     &.is-gutter-vertical-#{$gutter-size} {
       margin-bottom: -$gutter-size * 1px;
 
-      > .grid-column {
+      >.grid-column {
         padding-bottom: $gutter-size * 1px;
       }
     }
@@ -310,7 +314,7 @@ body {
       &.is-gutter-vertical-#{$gutter-size}-mobile {
         margin-bottom: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-bottom: $gutter-size * 1px;
         }
       }
@@ -322,7 +326,7 @@ body {
       &.is-gutter-vertical-#{$gutter-size}-phablet {
         margin-bottom: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-bottom: $gutter-size * 1px;
         }
       }
@@ -334,7 +338,7 @@ body {
       &.is-gutter-vertical-#{$gutter-size}-tablet {
         margin-bottom: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-bottom: $gutter-size * 1px;
         }
       }
@@ -346,7 +350,7 @@ body {
       &.is-gutter-vertical-#{$gutter-size}-laptop {
         margin-bottom: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-bottom: $gutter-size * 1px;
         }
       }
@@ -358,7 +362,7 @@ body {
       &.is-gutter-vertical-#{$gutter-size}-desktop {
         margin-bottom: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-bottom: $gutter-size * 1px;
         }
       }
@@ -370,9 +374,46 @@ body {
       &.is-gutter-vertical-#{$gutter-size}-large-desktop {
         margin-bottom: -$gutter-size * 1px;
 
-        > .grid-column {
+        >.grid-column {
           padding-bottom: $gutter-size * 1px;
         }
+      }
+    }
+  }
+
+  // Column Align
+  &.is-align-left {
+    justify-content: flex-start;
+  }
+
+  &.is-align-right {
+    justify-content: flex-end;
+  }
+
+  &.is-align-center {
+    justify-content: center;
+  }
+
+  &.is-align-spacebetween {
+    justify-content: space-between;
+  }
+
+  @each $breakpoint-value, $breakpoint-name in $breakpoint-names {
+    @media (min-width: $breakpoint-value) {
+      &.is-align-left-#{$breakpoint-name} {
+        justify-content: flex-start;
+      }
+
+      &.is-align-right-#{$breakpoint-name} {
+        justify-content: flex-end;
+      }
+
+      &.is-align-center-#{$breakpoint-name} {
+        justify-content: center;
+      }
+
+      &.is-align-spacebetween-#{$breakpoint-name} {
+        justify-content: space-between;
       }
     }
   }
